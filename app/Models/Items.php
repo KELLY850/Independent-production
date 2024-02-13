@@ -4,17 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+
+class Items extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'user_id',
         'name',
         'type',
+        'price',
+        'status',
+        'image',
         'detail',
     ];
 
@@ -33,4 +38,13 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    /**
+     * カテゴリー名
+     */
+    public function getPrefNameAttribute()
+    {
+       return config('category.'.$this->type);
+    }
+
 }

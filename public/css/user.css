@@ -1,0 +1,33 @@
+.container 
+{
+    display: flex;
+    justify-content: center;
+}
+.table-fixed-width 
+  {
+      width: 100%; /* 任意の幅を指定 */
+      margin: 0vw; /* 水平方向に中央寄せ */
+  }
+  th.text-center 
+  { 
+    background-color: #e1f7ff; /* 任意の背景色を指定 */
+  }
+  .table-bordered th 
+  {
+    border: 1px solid #dce5ff;
+  }
+.table-bordered td
+    {
+        background-color: white;
+    }
+.table-bordered td, .table-bordered th 
+  {
+  border: 1px solid #dce5ff;
+  }
+
+.page 
+{
+  display:flex;
+  justify-content: center;
+  margin-top:5vh;
+}

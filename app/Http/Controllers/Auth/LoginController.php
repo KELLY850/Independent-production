@@ -38,3 +38,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 }
+
+
+// $this->middleware('guest')->except('logout');: コンストラクター内で設定されている
+// ミドルウェアです。guest ミドルウェアは、ユーザーがログインしていない場合にのみアクセスを
+// 許可するためのものです。except メソッドは、logout メソッドを除外しています。
+// つまり、ログアウト時には guest ミドルウェアが適用されません。これにより、ログインしていない
+// ユーザーのみがログインフォームやログイン処理にアクセスできるようになります。
+

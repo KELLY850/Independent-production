@@ -1,0 +1,82 @@
+.image-and-table 
+{
+    display: flex;
+    justify-content: center; /* 画像とテーブルを中央に配置 */
+}
+.image {
+    width: 20%; /* 画像の幅を調整 */
+    margin-right:0px; /* 画像とテーブルの間隔を調整 */
+}
+img
+{
+  margin: 0 -5vw;
+}
+
+.table-fixed-width 
+  {
+      width: 50%; /* 任意の幅を指定 */
+      margin: 0vw; /* 水平方向に中央寄せ */
+  }
+  th.text-center 
+  { 
+    background-color: #e1f7ff; /* 任意の背景色を指定 */
+  }
+  .table-bordered th {
+    border: 1px solid #dce5ff;
+  }
+.table-bordered td, .table-bordered th 
+  {
+  border: 1px solid #dce5ff;
+  }
+  .card-body .form-control {
+    width:40vw; /* 入力フォームの横幅を100%に設定 */
+}
+.card-body
+  {
+    margin: 0;
+    padding: 0;
+  }
+card>hr 
+  {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+.form-group
+  {
+    margin: 2rem;
+  }
+
+  hr 
+  {
+    border-top: 1px solid rgb(166 246 219 / 80%);
+    margin-bottom: 0.1rem;
+  }
+.upload-btn
+  {
+    margin-left: 1rem;
+  }
+.button-container
+  {
+    display: flex;
+    justify-content: center;
+  }
+.card-footer
+  {
+    background-color: white;
+    padding:1.25rem;
+  }
+  form.btn
+  {
+    margin:0;
+    padding: 2vh 1vw
+  }
+  .btn-go-back
+  {
+    display: flex;
+    justify-content: left;
+    margin-left: 28vw;
+    padding: 2vh;
+  }
+  

@@ -16,4 +16,5 @@ return [
     'important'                     => '重要',
     'warning'                       => '警告',
     'information'                   => 'インフォメーション',
+    'search'                        =>'商品検索',
 ];

@@ -1,0 +1,5 @@
+.button {
+    -webkit-appearance: value; /* ベンダープレフィクスの例 */
+    -moz-appearance: value; /* ベンダープレフィクスの例 */
+    appearance: value; /* 標準の 'appearance' プロパティ */
+}

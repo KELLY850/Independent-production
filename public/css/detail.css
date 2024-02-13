@@ -1,0 +1,23 @@
+.image
+ {
+    width: 50%; /* コンテナの幅の25% */
+    height: 50vh; /* ピクセル値で高さを設定 */
+    padding: 10px;
+}
+
+.image img
+{
+    object-fit: cover; /* 画像をコンテナにフィットさせる */
+    width: 100%; /* コンテナの幅いっぱいに画像を表示 */
+    height: 100%; /* コンテナの高さいっぱいに画像を表示 */
+}
+
+    .price p
+    {
+        color:red;
+    }
+    hr
+    {
+        margin: 0.5rem 0;
+        color: #1a08c8;
+    }

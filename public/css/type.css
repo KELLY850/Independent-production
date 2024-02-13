@@ -1,0 +1,36 @@
+
+
+.content-header 
+{
+    padding: 5px 0.5rem;
+}
+
+.container 
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box
+ {
+    width: 25%; /* コンテナの幅の25% */
+    height: 200px; /* ピクセル値で高さを設定 */
+    padding: 10px;
+    box-sizing: border-box; /* paddingが幅に含まれるようにする */
+    margin-top: 8vh;
+}
+
+.box img
+{
+    object-fit: cover; /* 画像をコンテナにフィットさせる */
+    width: 100%; /* コンテナの幅いっぱいに画像を表示 */
+    height: 100%; /* コンテナの高さいっぱいに画像を表示 */
+}
+
+
+@media (max-width: 768px)
+ {
+    .box {
+        width: 50%; /* 画面が小さい場合は横に2つ並べる */
+    }
+}

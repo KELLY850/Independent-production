@@ -1,5 +1,10 @@
 <?php
 
+
+// このコードは、Laravel アプリケーションで使用される Laravel-AdminLTE 
+// パッケージの基本的な設定ファイルです。このファイルには、
+// 管理者パネルの外観や機能に関する様々な設定が含まれています
+// 。以下に、いくつかの重要な設定項目について説明します：
 return [
 
     /*
@@ -11,7 +16,9 @@ return [
     |
     | For detailed instructions you can look the title section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'title'管理者パネルのデフォルトのタイトルを指定します。
+    'title_prefix': タイトルの接頭辞（前に追加される部分）を指定します。
+    'title_postfix': タイトルの接尾辞（後に追加される部分）を指定します。
     */
 
     'title' => '商品管理',
@@ -27,7 +34,8 @@ return [
     |
     | For detailed instructions you can look the favicon section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'use_ico_only': アイコンだけの Favicon を使用するかどうかを指定します。
+    'use_full_favicon': フルな Favicon を使用するかどうかを指定します。
     */
 
     'use_ico_only' => false,
@@ -44,7 +52,7 @@ return [
     |
     | For detailed instructions you can look the google fonts section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'allowed': 外部の Google Fonts を使用するかどうかを指定します。
     */
 
     'google_fonts' => [
@@ -60,10 +68,15 @@ return [
     |
     | For detailed instructions you can look the logo section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'logo': 管理者パネルのロゴのHTMLを指定します。
+    'logo_img': ロゴの画像ファイルのパスを指定します。
+    'logo_img_class': ロゴ画像に適用されるCSSクラスを指定します。
+    'logo_img_xl': 拡大されたロゴ画像のパスを指定します。
+    logo_img_xl_class': 拡大されたロゴ画像に適用されるCSSクラスを指定します。
+    'logo_img_alt': ロゴ画像の代替テキストを指定します。
     */
 
-    'logo' => '<b>商品管理</b>',
+    'logo' => '<b>ホーム画面</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -80,7 +93,8 @@ return [
     |
     | For detailed instructions you can look the auth logo section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'enabled': 認証画面で別のロゴを使用するかどうかを指定します。
+        img': 別のロゴ画像の設定。  
     */
 
     'auth_logo' => [
@@ -103,7 +117,8 @@ return [
     |
     | For detailed instructions you can look the preloader section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'enabled': プリローダーを有効にするかどうかを指定します。
+    'img': プリローダーの画像の設定。
     */
 
     'preloader' => [
@@ -126,7 +141,7 @@ return [
     |
     | For detailed instructions you can look the user menu section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |'usermenu_enabled': ユーザーメニューを有効にするかどうかを指定します。
     */
 
     'usermenu_enabled' => true,
@@ -145,7 +160,7 @@ return [
     |
     | For detailed instructions you can look the layout section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
+    |レイアウトに関する様々な設定項目があります。
     */
 
     'layout_topnav' => null,
@@ -164,7 +179,8 @@ return [
     |
     | For detailed instructions you can look the auth classes section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
+    |管理者パネルのサイドバーメニューに関する設定が含まれています。
+    'text', 'url', 'icon' などを指定してメニュー項目を設定できます。
     */
 
     'classes_auth_card' => 'card-outline card-primary',
@@ -183,7 +199,6 @@ return [
     |
     | For detailed instructions you can look the admin panel classes here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     'classes_body' => '',
@@ -249,7 +264,7 @@ return [
     |
     | For detailed instructions you can look the urls section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
+    |管理者パネルの各ページへのURLに関する設定が含まれています。
     */
 
     'use_route_url' => false,
@@ -270,7 +285,7 @@ return [
     |
     | For detailed instructions you can look the laravel mix section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
+    |Laravel Mix を使用するかどうかや、CSSとJSのパスに関する設定が含まれています。
     */
 
     'enabled_laravel_mix' => false,
@@ -291,10 +306,26 @@ return [
 
     'menu' => [
         [
-            'text' => '商品一覧',
+            'text' => '商品管理',
             'url'  => 'items',
             'icon' => 'fas fa-gamepad',
         ],
+        [
+            'text' => '商品検索',
+            'url' => 'items/search',
+            'icon' => 'fas fa-search',
+        ],
+        [
+            'text' => 'ユーザー管理',
+            'url' => 'users/user',
+            'icon' => 'fas fa-users',
+        ],
+        [
+            'text' => '社員管理',
+            'url' => 'users/admin',
+            'icon' => 'fas fa-user-friends',
+        ],
+
 
         // AdminLTEデフォルト
         /*
@@ -514,7 +545,7 @@ return [
     |
     | For detailed instructions you can look the iframe mode section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
-    |
+    |IFrame モードに関する設定が含まれています。
     */
 
     'iframe' => [
@@ -546,7 +577,7 @@ return [
     |
     | For detailed instructions you can look the livewire here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
+    |Livewire サポートに関する設定が含まれています。
     */
 
     'livewire' => false,

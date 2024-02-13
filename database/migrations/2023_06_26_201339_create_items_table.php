@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->string('name', 100)->index();
-            $table->string('type', 100)->nullable();
-            $table->string('detail', 500)->nullable();
+            $table->smallInteger('type')->unsigned()->nullable();
+            $table->integer('price')->unsigned()->nullable();
+            $table->string('image')->nullable();
+            $table->string('detail', 1000)->nullable();
+            $table->string('status', 100)->index()->default('active');
             $table->timestamps();
         });
     }
