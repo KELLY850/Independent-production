@@ -14,7 +14,7 @@
             <select class="form-select" name="type">
                 <option value="" selected>全て</option>
                 @foreach($types as $key => $type)
-                <option value="{{ $key }}">{{ $type }}</option>
+                <option value="{{ $key }}"{{ $desiredType == $key ? 'selected' : '' }}>{{ $type }}</option>
                 @endforeach
             </select>
         </div>
@@ -30,16 +30,16 @@
     @if(!empty($data) && $data->count() > 0)
     <div class="card-body table-responsive p-0">
         <table class="table table-hover text-nowrap">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>名前</th>
-                    <th>種別</th>
-                    <th>価格</th>
-                    <th>更新日時</th>
-                    <th></th>
-                </tr>
-            </thead>
+                <thead class="custom-header">
+                    <tr>
+                        <th>ID</th>
+                        <th>名前</th>
+                        <th>種別</th>
+                        <th>価格</th>
+                        <th>更新日時</th>
+                        <th></th>
+                    </tr>
+                </thead>
             <tbody>
             @foreach ($data as $item)
                 <tr>
@@ -68,6 +68,8 @@
 
 @section('css')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+
 @stop
 
 @section('js')

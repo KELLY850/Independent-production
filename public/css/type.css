@@ -1,36 +1,109 @@
 
+/* ホーム画面からそれぞれの各カテゴリー商品が並んでいるページで使用 */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4つの列を均等に配置 */
+    gap: 10px; /* アイテム間の間隔 */
+    color:#694934;
 
+}
 .content-header 
 {
     padding: 5px 0.5rem;
 }
 
-.container 
-{
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .box
  {
-    width: 25%; /* コンテナの幅の25% */
-    height: 200px; /* ピクセル値で高さを設定 */
+    width: 100%;
+    /* コンテナの幅の25%
+    /* ピクセル値で高さを設定 */
+    height: 200px; 
     padding: 10px;
-    box-sizing: border-box; /* paddingが幅に含まれるようにする */
-    margin-top: 8vh;
+    /* paddingが幅に含まれるようにする */
+    box-sizing: border-box;
+    margin-top: 8vh; 
+    margin-bottom: 10vh;
 }
 
 .box img
 {
-    object-fit: cover; /* 画像をコンテナにフィットさせる */
+    object-fit: contain; /* 画像をコンテナにフィットさせる */
     width: 100%; /* コンテナの幅いっぱいに画像を表示 */
     height: 100%; /* コンテナの高さいっぱいに画像を表示 */
 }
+/* .box text 
+{
+    margin-bottom:auto;
 
-
-@media (max-width: 768px)
+} */
+.img-thumbnail 
+{
+    border: 1px solid #64060647;
+    box-shadow: 0 1px 2px rgb(220 146 146 / 73%);
+}
+.content-wrapper
  {
+    background-color: #fefff3;
+}
+
+.pagination
+ {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    border-radius: 0.25rem;
+    margin-top: 10vh; 
+}
+.page-item.active .page-link
+{
+    z-index: 3;
+    color: #fff;
+    background-color: #bf8865;
+    border:solid 1px #854e1e;
+}
+.page-link 
+{
+    color: #5e2008;
+    border:solid 0.5px #8d464647;
+}
+.page-link:focus
+ {
+    color: #84362c;
+    background-color: #99111124;
+    box-shadow:#bf8865;
+}
+.pagination 
+{
+    --bs-pagination-border-color: #9701014d;
+    --bs-pagination-hover-border-color: #9701014d;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgb(249 61 61 / 25%);
+    --bs-pagination-disabled-border-color:#9701014d;
+}
+@media (max-width: 768px)
+{
     .box {
         width: 50%; /* 画面が小さい場合は横に2つ並べる */
     }
 }
+.main-header {
+    border-bottom: 1px solid #87101080;
+    z-index: 1034;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(109 0 0 / 69%);
+}
+.content-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #580e0eab;
+}
+[class*=sidebar-dark-] {
+    background-color: #9f651a;
+  }
+  [class*=sidebar-dark-] .sidebar a {
+    color: #fff0ba;
+  }
+  .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #ffba50;
+    color: #bb1d1d;
+  }

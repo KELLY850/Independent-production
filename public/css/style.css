@@ -1,16 +1,28 @@
+/* 商品詳細・編集画面で使用 */
+
 .image-and-table 
 {
     display: flex;
     justify-content: center; /* 画像とテーブルを中央に配置 */
 }
 .image {
-    width: 20%; /* 画像の幅を調整 */
+    width: 30%; /* 画像の幅を調整 */
     margin-right:0px; /* 画像とテーブルの間隔を調整 */
 }
 img
 {
   margin: 0 -5vw;
 }
+
+.img-thumbnail
+ {
+  border: 1px solid #64060647;
+  box-shadow: 0 1px 2px rgb(220 146 146 / 73%);
+  object-fit: contain;
+  height: 200px;
+ }
+ /* height: 25%;
+ object-fit: contain; */
 
 .table-fixed-width 
   {
@@ -19,23 +31,27 @@ img
   }
   th.text-center 
   { 
-    background-color: #e1f7ff; /* 任意の背景色を指定 */
+    background-color: rgb(190, 129, 112, 0.57); /* 任意の背景色を指定 */
+    color:white;
   }
   .table-bordered th {
-    border: 1px solid #dce5ff;
+    border: 1px solid rgb(190, 129, 112, 0.57);
   }
 .table-bordered td, .table-bordered th 
   {
-  border: 1px solid #dce5ff;
+  border: 1px solid rgb(190, 129, 112, 0.57);
   }
   .card-body .form-control {
     width:40vw; /* 入力フォームの横幅を100%に設定 */
 }
 .card-body
   {
+    color: #700909ad;
     margin: 0;
-    padding: 0;
+    padding-bottom: 2vh; 
+    border: solid 0.5px;
   }
+
 card>hr 
   {
     margin-right: 0;
@@ -43,29 +59,42 @@ card>hr
     margin-top: 0;
     margin-bottom: 0;
   }
-.form-group
-  {
-    margin: 2rem;
-  }
-
+  .form-group {
+    margin: 1rem 1rem 0 1rem;
+}
+.form-control
+ {
+  color: #5e1f14;
+  border: 1px solid #822f2fc9
+ }
+ .form-control:focus 
+ {
+  color: 5e1f14;
+  background-color: #fff;
+  border-color: #ff8080;
+ }
   hr 
   {
-    border-top: 1px solid rgb(166 246 219 / 80%);
+    border-top: 1px solid rgb(190, 129, 112, 0.57);
     margin-bottom: 0.1rem;
   }
 .upload-btn
   {
     margin-left: 1rem;
+    margin-top: 3vh;
   }
 .button-container
   {
     display: flex;
     justify-content: center;
+    border: solid 0.2px #961a1a;
+    background-color: #eaeaff;
   }
 .card-footer
   {
-    background-color: white;
+    background-color: #fee5ff47;
     padding:1.25rem;
+    
   }
   form.btn
   {
@@ -75,8 +104,68 @@ card>hr
   .btn-go-back
   {
     display: flex;
-    justify-content: left;
-    margin-left: 28vw;
-    padding: 2vh;
+    justify-content: right; 
+    margin-bottom:2vh;
+    margin-right: 10vw; 
+    margin-top:2vh;
   }
-  
+  .navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default
+   {
+      color: #694934;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #744b4bd9;
+    border-color: #6b2d15;
+    box-shadow: none;
+}
+.btn-primary:not(:disabled):not(.disabled):active
+{
+    color: #fff;
+    background-color: #7410104f;
+    border-color: #880505;
+}
+.btn-primary:focus 
+{
+    color: #fff;
+    background-color: #7410104f;
+    border-color: #880505;
+    box-shadow: 0 0 0 0 rgba(252, 205, 185, 0.912);
+}
+.btn-primary:hover 
+{
+    color: #fff;
+    background-color: #7410104f;
+    border-color: #880505;
+}
+.btn-danger {
+  color: #360e80c9;
+  background-color: #ffc9ff47;
+  border-color: #5f008f;
+}
+  .content-wrapper
+  {
+    background-color: #fefff3;
+  }
+  .main-header {
+    border-bottom: 1px solid #87101080;
+    z-index: 1034;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(109 0 0 / 69%);
+}
+.content-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #580e0eab;
+}
+[class*=sidebar-dark-] {
+  background-color: #9f651a;
+}
+[class*=sidebar-dark-] .sidebar a {
+  color: #fff0ba;
+}
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+  background-color: #ffba50;
+  color: #bb1d1d;
+}

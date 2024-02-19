@@ -27,7 +27,7 @@ class AdminAllowMiddleware
                 // employee の場合は items.index, items.search, items.detail にのみアクセスを許可する
                 return $next($request);
             }
-        // ログインしていないか、ロールが admin または employee でない場合は home にリダイレクトする    }
+        // ログインしていないか、ロールが admin または employee でない場合は home にリダイレクトする   
         }
         return redirect()->route('login'); 
     }

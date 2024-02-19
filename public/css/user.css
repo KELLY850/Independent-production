@@ -1,7 +1,14 @@
+/* 社員管理のページで利用 */
+
 .container 
 {
     display: flex;
     justify-content: center;
+    margin: 5vh 0;
+
+}
+.table{
+  --bs-table-color: #6a1313bd;
 }
 .table-fixed-width 
   {
@@ -10,11 +17,12 @@
   }
   th.text-center 
   { 
-    background-color: #e1f7ff; /* 任意の背景色を指定 */
+    background-color: rgb(190, 129, 112, 0.57); /* 任意の背景色を指定 */
+    color:white;
   }
   .table-bordered th 
   {
-    border: 1px solid #dce5ff;
+    border: 1px solid rgb(190, 129, 112, 0.57);
   }
 .table-bordered td
     {
@@ -22,7 +30,7 @@
     }
 .table-bordered td, .table-bordered th 
   {
-  border: 1px solid #dce5ff;
+  border: 1px solid rgb(190, 129, 112, 0.57);
   }
 
 .page 
@@ -30,4 +38,127 @@
   display:flex;
   justify-content: center;
   margin-top:5vh;
+}
+.content-wrapper {
+  background-color: #fefff3;
+}
+
+.btn:not(:disabled):not(.disabled)
+{
+    cursor: pointer;
+    background-color: #d9c4b7;
+}
+.navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default
+ {
+    color: #694934;
+}
+.btn-outline-success 
+{
+    --bs-btn-color: #613905;
+    --bs-btn-border-color: #674f236e;
+    --bs-btn-hover-border-color: #623405;
+    --bs-btn-hover-bg:#623405;
+    --bs-btn-active-bg: #8e581c;
+    --bs-btn-active-border-color:#623405;
+    --bs-btn-active-shadow:#674f236e;
+    --bs-btn-disabled-color: #623405;
+    --bs-btn-disabled-border-color: #623405;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active
+{
+    color: #fff;
+    background-color: #623405;
+    border-color: #623405;
+}
+.form-select option:checked {
+
+    background-color: white;
+}
+.col-auto {
+padding-right: 0px;
+padding-left:0px;
+}
+
+.form-select option:checked {
+
+  background-color: white;
+  color: #5e1f14;
+  border: var(--bs-border-width) solid #822f2fc9;
+}
+.form-select:focus {
+  border-color: #cd95d7;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(228 102 102 / 25%);
+}
+.form-select 
+{
+  background-color: white;
+  color: #5e1f14;
+  border: var(--bs-border-width) solid #822f2fc9;
+}
+.form-control 
+{
+  color: #5e1f14;
+  border: var(--bs-border-width) solid #822f2fc9;
+}
+.form-control:focus {
+  color: #5e1f14;
+  background-color: var(--bs-body-bg);
+  border-color: #cd95d7;
+  box-shadow: 0 0 0 0.25rem rgb(228 102 102 / 25%);
+}
+.page-item.active .page-link
+{
+    z-index: 3;
+    color: #fff;
+    background-color: #bf8865;
+    border-color: #854e1e;
+}
+.page-link 
+{
+    color: #5e2008;
+    border: var(--bs-pagination-border-width) solid #8d464647;
+}
+.page-link:focus
+ {
+    color: #84362c;
+    background-color: #99111124;
+    box-shadow:#bf8865;
+}
+.pagination 
+{
+    --bs-pagination-border-color: #9701014d;
+    --bs-pagination-hover-border-color: #9701014d;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgb(249 61 61 / 25%);
+    --bs-pagination-disabled-border-color:#9701014d;
+}
+.main-header {
+  border-bottom: 1px solid #87101080;
+  z-index: 1034;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(109 0 0 / 69%);
+}
+.content-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #580e0eab;
+}
+[class*=sidebar-dark-] {
+  background-color: #9f651a;
+}
+[class*=sidebar-dark-] .sidebar a {
+  color: #fff0ba;
+}
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+  background-color: #ffba50;
+  color: #bb1d1d;
+}
+a {
+  color: #984b4b;
+  text-decoration: none;
+}
+a:hover 
+{
+  color:#794e0dd6;
 }

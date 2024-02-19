@@ -11,7 +11,7 @@
         <div class="image-and-table">
             <div class="image">
             @if($item->image)
-                <img src="{{ asset('storage/image/'.$item->image) }}" alt="" width="100%" height="auto" class="img-thumbnail">
+                <img src="{{ asset('storage/'.$item->image) }}" alt="" width="100%" height="auto" class="img-thumbnail">
             @else
                 <img src="{{ asset('img/写真がない時.png')}}" width="100%"  alt="" class="img-thumbnail">
             @endif

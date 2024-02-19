@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" placeholder="姓名の間にスペースを入れてください" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,10 +25,10 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('カタカナ') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('カタカナ（全角）') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name_katakana" type="text" class="form-control @error('name_katakana') is-invalid @enderror" name="name_katakana" value="{{ old('name_katakana') }}" required autocomplete="name_katakana" autofocus>
+                                <input id="name_katakana" type="text" placeholder="姓名の間にスペースを入れてください" class="form-control @error('name_katakana') is-invalid @enderror" name="name_katakana" value="{{ old('name_katakana') }}" required autocomplete="name_katakana" autofocus>
 
                                 @error('name_katakana')
                                     <span class="invalid-feedback" role="alert">
@@ -89,3 +89,4 @@
     </div>
 </div>
 @endsection
+

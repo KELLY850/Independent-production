@@ -309,23 +309,30 @@ return [
             'text' => '商品管理',
             'url'  => 'items',
             'icon' => 'fas fa-gamepad',
+            'can'  => 'admin',
         ],
         [
             'text' => '商品検索',
             'url' => 'items/search',
             'icon' => 'fas fa-search',
+            'can'  =>'employee',
         ],
         [
-            'text' => 'ユーザー管理',
-            'url' => 'users/user',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => '社員管理',
+            'text' => 'アカウント管理',
             'url' => 'users/admin',
             'icon' => 'fas fa-user-friends',
-        ],
+            'can'  => 'admin',
 
+        ],
+        [   'text' => 'ログイン',
+            'url' => '/login',
+            'icon' => 'fas fa-key',
+        ],
+        [   
+            'text' => '新規登録',
+            'url' => '/register',
+            'icon' => 'fas fa-user-plus',
+        ],        
 
         // AdminLTEデフォルト
         /*

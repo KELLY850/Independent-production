@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>介護用品をお探しですか？</p>
+    <p class="subtitle">介護用品をお探しですか？</p>
     <ul>
         <li>
             <a href="{{ url('types/1') }}">

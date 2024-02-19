@@ -14,7 +14,7 @@
             @if($item->image)
             <a href="{{ route('types.detail', ['id' => $item->id]) }}">
                 <!-- 画像をクリックしたら遷移するページを用意しておく。 -->
-                <img src="{{ asset('storage/image/'.$item->image) }}" alt="" width="100%" class="img-thumbnail">
+                <img src="{{ asset('storage/'.$item->image) }}" alt="" width="100%" class="img-thumbnail">
             </a>
             @else
             <a href="{{ route('types.detail', ['id' => $item->id]) }}">
@@ -23,14 +23,15 @@
             @endif
             <div class="text">
                 <p>商品名：{{ $item->name }}</p>
-                <p>料金:{{ $item->price }}円</p>
+                <p>料金(１割負担):{{ $item->price }}円</p>
             </div>
         </div>
         @endforeach
     </div>
 
-
+<div class="pagi">
 {{ $items->links() }}
+</div>
 @stop
 
 @section('css')
