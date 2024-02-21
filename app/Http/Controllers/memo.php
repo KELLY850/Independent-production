@@ -1,4 +1,6 @@
 
+<!-- こういうやりかたもある、というのでメモさせてください。 -->
+
 <!-- 商品登録時の内容です -->
             // 初期値を設定空
              $desiredType = '';
@@ -32,3 +34,41 @@
              ]);
             // 商品一覧画面に遷移
              return redirect()->route('items.index');
+
+
+ <!-- 編集更新内容             -->
+     // itemsテーブルからID情報を取り出し、それを$itemとする
+        $item = Items::findOrFail($id);
+        //画像を保存する処理
+        //もしも画像が入っていたら
+        if ($request->hasFile('image')) {
+            // 過去登録した商品画像のパスを取得
+            $oldImagePath = $item->image;
+            // 新しく入力された画像ファイル名を格納
+            $imagePath = $request->file('image')->getClientOriginalName();
+            //ストレージファイルに保存
+            $request->file('image')->storeAs('public/image/', $imagePath);
+            //もしも、過去の画像があった場合には、
+            if ($oldImagePath) {
+                //ストレージから削除する。
+                Storage::delete($oldImagePath);
+            }
+            //新たに、アップロードされた画像
+            $item->image = $imagePath;
+        } elseif ($request->has('delete_image')) {
+            // 画像削除ボタンが押された場合
+            Storage::delete('public/image/' . $item->image);
+            $item->image = null;
+        }
+        // $itemのname,type,detailについてリクエストが入ったらそれぞれ
+        // 新たに各カラムに入る
+        $item->name = $request->input('name');
+        $item->type = $request->input('type');
+        $item->price = $request->input('price');
+        $item->status = $request->input('status');
+        $item->detail = $request->input('detail');
+        // 上記、新たに入った内容の（既存の情報と比較して）保存を行う
+        $item->save();
+        // 商品編集画面に戻る
+        return redirect()->route('items.edit', ['id' => $id]);
+    }

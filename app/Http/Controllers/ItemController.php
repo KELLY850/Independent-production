@@ -89,7 +89,6 @@ class ItemController extends Controller
         // 画像もある場合もセッションに保存
         if ($request->hasFile("image")) {
             // $image = images/_____.jpeg 
-            $image = $request->file("image")->getClientOriginalName();
             $image = $request->file("image")->store("images", "public");
             $request->session()->put("image", $image);
         }else
@@ -144,46 +143,60 @@ class ItemController extends Controller
         ]);
     }
 
+    /**
+     * 商品編集確認画面
+     */
+    public function editConfirm(ItemFormRequest $request,$id)
+    {
+        $types = config('category');
+        // itemsテーブルからID情報を取り出し、それを$itemとする
+        $item = Items::findOrFail($id);
+        $oldImage=$item->image;
+        $inputs = $request->except(["image"]);
+
+        // フォームの入力データをセッションに保存
+        $request->session()->put("form_data", $inputs);
+        $image = null;
+        // 画像もある場合もセッションに保存
+        if ($request->hasFile("image")) {
+            // $image = images/_____.jpeg 
+            $image = $request->file("image")->store("images", "public");
+            $request->session()->put("image", $image);
+            //新たに、アップロードされた画像
+            $item->image = $image;
+    //下記はこのやり方もあるでメモとして残しておきたいと思います。
+        // } elseif ($request->has('delete_image')) {
+        //     // 画像削除ボタンが押された場合
+        //     Storage::delete('public/' . $item->image);
+        //     $item->image = null;
+        }
+        // dd($item->image);
+        return view('item.editConfirm', [
+            'inputs' => $inputs, "image" => $image, 'types' => $types,'item'=>$item,'oldImage'=>$oldImage,
+        ]);
+    }
 
     /** 商品編集
      * @param Request $request
      * @param int $item 商品ID
      * @return view|redirect 商品編集画面または商品一覧画面へのリダイレクトレスポンス
      */
-    public function edit(ItemFormRequest $request, $id)
+    public function edit(Request $request, $id)
     {
-        // itemsテーブルからID情報を取り出し、それを$itemとする
         $item = Items::findOrFail($id);
-        //画像を保存する処理
-        //もしも画像が入っていたら
-        if ($request->hasFile('image')) {
-            // 過去登録した商品画像のパスを取得
-            $oldImagePath = $item->image;
-            // 新しく入力された画像ファイル名を格納
-            $imagePath = $request->file('image')->getClientOriginalName();
-            //ストレージファイルに保存
-            $request->file('image')->storeAs('public/image/', $imagePath);
-            //もしも、過去の画像があった場合には、
-            if ($oldImagePath) {
-                //ストレージから削除する。
-                Storage::delete($oldImagePath);
-            }
-            //新たに、アップロードされた画像
-            $item->image = $imagePath;
-        } elseif ($request->has('delete_image')) {
-            // 画像削除ボタンが押された場合
-            Storage::delete('public/image/' . $item->image);
-            $item->image = null;
+        $inputs = $request->session()->get('form_data');
+        $image = $request->session()->get('image');
+
+        if ($request->has('back')) {
+            $request->session()->forget(["form_data", "image"]);
+            return Redirect::route('items.edit',['id'=>$item->id])->withInput($inputs);
         }
-        // $itemのname,type,detailについてリクエストが入ったらそれぞれ
-        // 新たに各カラムに入る
-        $item->name = $request->input('name');
-        $item->type = $request->input('type');
-        $item->price = $request->input('price');
-        $item->status = $request->input('status');
-        $item->detail = $request->input('detail');
-        // 上記、新たに入った内容の（既存の情報と比較して）保存を行う
+        // データーベースに保存
+        $item->fill($inputs);
+        $item->image = $image;
         $item->save();
+        // セッションからデータを削除
+        $request->session()->forget(["form_data", "image"]);
         // 商品編集画面に戻る
         return redirect()->route('items.edit', ['id' => $id]);
     }
@@ -210,7 +223,7 @@ class ItemController extends Controller
 
         // 画像が登録されている場合は削除する
         if ($item->image) {
-            Storage::delete('public/image/' . $item->image);
+            Storage::delete('public/' . $item->image);
             $item->image = null;
             $item->save();
         }

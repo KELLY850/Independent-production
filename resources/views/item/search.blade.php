@@ -35,6 +35,7 @@
                         <th>ID</th>
                         <th>名前</th>
                         <th>種別</th>
+                        <th>ステータス</th>
                         <th>価格</th>
                         <th>更新日時</th>
                         <th></th>
@@ -46,6 +47,7 @@
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->getPrefNameAttribute() }}</td>
+                    <td>{{ $item->status === 'active' ? "公開" : "非公開" }}</td>
                     <td>{{ $item->price }}円</td>
                     <td>{{ $item->updated_at }}</td>
                     <td>

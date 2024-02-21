@@ -43,11 +43,10 @@ Route::prefix('items')->group(function ()
         Route::post('/add', [App\Http\Controllers\ItemController::class, 'store'])->name('items.store'); 
         //登録確認画面
         Route::post('/add/confirm',[App\Http\Controllers\ItemController::class, 'confirm'])->name('items.confirm'); 
-        //灯篭内容完了画面
-        Route::get('/add/complete', [App\Http\Controllers\ItemController::class, 'complete'])->name('items.complete'); 
-
         //商品編集画面表示
         Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'itemview'])->name('items.edit');
+        //商品編集確認画面
+        Route::post('/edit/{id}/confirm', [App\Http\Controllers\ItemController::class, 'editConfirm'])->name('items.edit.confirm');
         //商品編集
         Route::post('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit'])->name('items.update');
         //商品削除

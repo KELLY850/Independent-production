@@ -28,11 +28,11 @@ endif -->
                 @endif
                 <form method="POST" action="{{ route('items.deleteImage', ['id' => $item->id]) }}" class="btn">
                 @csrf
-                    <button type="submit" class="btn btn-danger">画像を削除する</button>
+                    <button type="submit" class="btn btn-danger" name="delete_image">画像を削除する</button>
                 </form>
             </div>
             <div class="card card-primary">
-                <form method="POST" action="{{ url('items/edit/'.$item->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('items.edit.confirm',['id'=>$item->id]) }}" enctype="multipart/form-data">
                 @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -98,7 +98,7 @@ endif -->
 
                         </div>
                         <div class="upload-btn">
-                            <button type="submit" class="btn btn-primary">更新</button>
+                            <button type="submit" class="btn btn-primary">編集確認</button>
                         </div>
                     </div>
                 </form>
