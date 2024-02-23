@@ -112,7 +112,7 @@ class UserController extends Controller
         // 上記、新たに入った内容の（既存の情報と比較して）保存を行う
         $user->save();
         // 商品編集画面に戻る
-        return redirect()->route('users.edit', ['id' => $id]);
+        return redirect()->route('users.edit', ['id' => $id])->with("message","編集が完了しました。");
     }
            /**
      * 商品登録の削除

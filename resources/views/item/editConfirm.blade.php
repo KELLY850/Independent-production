@@ -87,13 +87,7 @@ endif -->
                         <form method="POST" action="{{ route('items.update',['id' => $item->id]) }}">
                         @csrf
                             <div class="card-footer">
-                                <button type="submit" id="go-back" class="btn btn-primary">修正</button>
-                            </div>
-                        </form>
-                        <form method="POST" action="{{ route('items.delete',['id' => $item->id]) }}">
-                        @csrf
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-danger">削除</button>
+                                <button type="submit" id="go-back" class="btn btn-primary" name="back">修正</button>
                             </div>
                         </form>
                     </div>

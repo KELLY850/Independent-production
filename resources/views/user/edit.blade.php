@@ -56,6 +56,11 @@
                                 </span>
                                 @enderror
                             </div>
+                            @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
                             <div>
                                 <button type="submit" class="btn btn-primary">編集</button>
                             </div>

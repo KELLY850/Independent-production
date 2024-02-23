@@ -56,12 +56,9 @@ endif -->
                             <label for="type">種別</label>
                             <select name="type" id="type" class="form-control">
                                 @foreach(config('category') as $key => $category)
-                                <!-- ? : は、三項演算子（Ternary Operator）と呼ばれる構文で、
-                                条件によって値を選択するための短縮記法
-                                この構文は、条件が真の場合には「真の場合の値」を返し、
-                                偽の場合には「偽の場合の値」を返します。$key が真の場合、'selected' を返し 
-                                偽の場合、空文字列 '' を返す-->
-                                <option value="{{ $key }}"{{ old('type', isset($item) && $item->type == $key ? 'selected' : '') }}>{{ $category }}</option>
+                                <option value="{{ $key }}" {{ old('type', $item->type) == $key ? 'selected' : '' }}>
+                                    {{ $category }} <!-- オプションの名前を表示 -->
+                                </option>
                                 @endforeach                   
                             </select>
 
