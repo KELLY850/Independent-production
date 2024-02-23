@@ -169,7 +169,10 @@ class ItemController extends Controller
         //     // 画像削除ボタンが押された場合
         //     Storage::delete('public/' . $item->image);
         //     $item->image = null;
+        }else{
+            $request->session()->put("image", $oldImage);
         }
+        
         // dd($item->image);
         return view('item.editConfirm', [
             'inputs' => $inputs, "image" => $image, 'types' => $types,'item'=>$item,'oldImage'=>$oldImage,
@@ -186,7 +189,6 @@ class ItemController extends Controller
         $item = Items::findOrFail($id);
         $inputs = $request->session()->get('form_data');
         $image = $request->session()->get('image');
-
         if ($request->has('back')) {
             $request->session()->forget(["form_data", "image"]);
             return Redirect::route('items.edit',['id'=>$item->id])->withInput($inputs);

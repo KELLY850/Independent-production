@@ -103,7 +103,7 @@ class UserController extends Controller
         }
         $request->validate([
             'name' => ['required', 'string', 'max:255','regex:/^[^\d]+$/u'],
-            'name_katakana' =>['required','string','max:255', 'regex:/^[\p{Han}\p{Katakana}\sー]+$/u'],
+            'name_katakana' =>['required','string','max:255', 'regex:/^[ァ-ヶー\s]+$/u'],
         ]);
         $user->name = $request->input('name');
         $user->name_katakana = $request->input('name_katakana');

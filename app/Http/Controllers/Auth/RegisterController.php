@@ -51,12 +51,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255','regex:/^[^\d]+$/u'],
-            'name_katakana' =>['required','string','max:255', 'regex:/^[\p{Han}\p{Katakana}\sー]+$/u'],
+            'name_katakana' =>['required','string','max:255', 'regex:/^[ァ-ヶー\s]+$/u'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-
+    // ^[\p{Han}\p{Katakana}\sー]+$/u
+    // /^\p{Katakana}+$/u
+    // /^\p{Katakana}+(?:\s\p{Katakana}+)*$/u
+    // /^\p{Katakana}+(?:\s|　)\p{Katakana}+$/u
     /**
      * Create a new user instance after a valid registration.
      *

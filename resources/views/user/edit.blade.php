@@ -14,7 +14,7 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="id">ID:{{ $user->id }}</label>
+                                <label for="id">ID:{{ $user->id }}</label><br>                        
                                 <label for="name">名前</label><br>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"  value="{{ old('name',isset($user) ?  $user->name : '') }}">
                                 @error('name')
