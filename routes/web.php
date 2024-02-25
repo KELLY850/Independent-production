@@ -18,15 +18,16 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
-//ログイン機能
+//ログインルート
 Auth::routes();
 
 //ダッシュボード（ホーム）画面表示・どのユーザーでも遷移可能
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//商品関係のルート/items/〜でグループ化。
 Route::prefix('items')->group(function () 
 {
-    // 商品管理画面
+    // 商品管理画面　（管理者権限のみしか遷移できない）
     Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('items.index')->middleware('admin');
     // 商品検索画面と商品詳細画面・・・管理者権限と一般社員が遷移可能
     Route::middleware(['admin', 'employee'])->group(function () {

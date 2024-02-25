@@ -88,3 +88,8 @@
   color: #fff9dee8;
   background-color: #704f217a;
 }
+.alert-success {
+  color: #97672e;
+  background-color: #eeb45475;
+  border-color: #ff8604b5;
+}

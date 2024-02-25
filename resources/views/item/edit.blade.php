@@ -17,7 +17,12 @@
                     </ul>
                 </div>
 endif -->
-
+@if(session()->has('message'))
+<div class="alert alert-success">
+{{ session('message') }}
+</div>
+@endif
+                        
     <div class="container">
         <div class="image-and-table">
             <div class="image">

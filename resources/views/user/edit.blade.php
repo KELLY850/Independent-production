@@ -61,9 +61,7 @@
                                     {{ session('message') }}
                                 </div>
                             @endif
-                            <div>
-                                <button type="submit" class="btn btn-primary">編集</button>
-                            </div>
+                            <button type="submit" class="btn btn-primary">編集</button>
                         </div>
                     </form>
                 </div>

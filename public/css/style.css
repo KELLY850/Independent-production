@@ -169,3 +169,8 @@ card>hr
   background-color: #ffba50;
   color: #bb1d1d;
 }
+.alert-success {
+  color: #97672e;
+  background-color: #eeb45475;
+  border-color: #ff8604b5;
+}

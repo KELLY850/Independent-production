@@ -17,11 +17,16 @@ class UserController extends Controller
 
     /**
      * アカウント一覧表示・検索機能付き
+     * @param Request $request
+     * @return view
      */
     public function list2(Request $request)
     {
+        //選択した検索カテゴリーを＄category
         $category = $request -> input('category');
+        //入力した検索キーワードを$keyword
         $keyword = $request -> input('keyword');
+        //入力した$keywordのの
         $keywordWithoutSpace = str_replace(' ', '', $keyword);
         $query = User::query();
 
