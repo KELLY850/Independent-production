@@ -33,7 +33,11 @@ class AppServiceProvider extends ServiceProvider
                 return in_array($user->role, ['admin', 'employee']);
             });
 
-
+        //ページネーションはブートストラップを利用
         Paginator::useBootstrap();
+
+        if(\App::environment(['production'])){
+            \URL::forceScheme('https');
+        }
     }
 }
