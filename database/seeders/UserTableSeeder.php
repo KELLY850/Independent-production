@@ -13,12 +13,14 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {        
-        //
-        // Users::create([
-        //     'name'=>'社員1',
-        //     'email'=>'test1@co.jp',
-        //     'password'=>'11111111'
-        // ]);
+        
+        User::create([
+            'name'=>'管理者',
+            'email'=>'test1@co.jp',
+            'name_katakana'=>'カンリシャ',
+            'role'=>'admin',
+            'password'=>'1A2s1a2S'
+        ]);
         // Users::create([
         //     'name'=>'社員2',
         //     'email'=>'test2@co.jp',
@@ -39,7 +41,7 @@ class UserTableSeeder extends Seeder
         //     'email'=>'test5@co.jp',
         //     'password'=>'55555555'
         // ]);
-        User::factory()->count(10)->create();
+        // User::factory()->count(10)->create();
 
     }
 }

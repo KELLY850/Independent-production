@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Items;
+use Illuminate\Support\Facades\File;
 
 class ItemController extends Controller
 {
@@ -101,16 +102,24 @@ class ItemController extends Controller
         //$imageは初期値空。
         $image = "";
         // image・画像もある場合、
+        // if ($request->hasFile("image")) {
+        //     // $image は挿入されたimage(file nameの)をpublicディレクトリのimagesに保存する。
+        //     $image = $request->file("image")->store("images", "public");
+        //     //一時的に＄image（値）のimage(キー)を保存する
+        //     $request->session()->put("image", $image);
+        // } else {
+        //     //あるいは、＄imageはnull
+        //     $image = null;
+        // }
         if ($request->hasFile("image")) {
-            // $image は挿入されたimage(file nameの)をpublicディレクトリのimagesに保存する。
-            $image = $request->file("image")->store("images", "public");
-            //一時的に＄image（値）のimage(キー)を保存する
+            $imageFile = $request->file("image");
+            $imageContents = File::get($imageFile);
+            $imageBase64 = base64_encode($imageContents);
+            $image = 'data:' . $imageFile->getClientMimeType() . ';base64,' . $imageBase64;
             $request->session()->put("image", $image);
-        } else {
-            //あるいは、＄imageはnull
+        }else{
             $image = null;
         }
-
         return view('item.confirm', [
             'inputs' => $inputs, "image" => $image, 'types' => $types
         ]);
