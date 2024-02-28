@@ -102,37 +102,37 @@ class ItemController extends Controller
         //$imageは初期値空。
         $image = "";
         // image・画像もある場合、
-        // if ($request->hasFile("image")) {
-        //     // $image は挿入されたimage(file nameの)をpublicディレクトリのimagesに保存する。
-        //     $image = $request->file("image")->store("images", "public");
-        //     //一時的に＄image（値）のimage(キー)を保存する
-        //     $request->session()->put("image", $image);
-        // } else {
-        //     //あるいは、＄imageはnull
-        //     $image = null;
-        // }
         if ($request->hasFile("image")) {
-            // リクエストから "image" ファイルを取得し、変数 $imageFile に代入しています。
-            $imageFile = $request->file("image");
-            // File::get($imageFile);: Laravel の File クラスを使用して、
-            // $imageFile から画像ファイルの内容を取得しています。これにより、
-            // 画像ファイルのバイナリデータが変数 $imageContents に保存されます。
-            $imageContents = File::get($imageFile);
-            // base64_encode 関数を使用して、画像ファイルのバイナリデータを
-            //  Base64 エンコードしています。これにより、画像データがテキスト形式に
-            //  変換され、変数 $imageBase64 に保存されます。
-            $imageBase64 = base64_encode($imageContents);
-            // Data URI スキームを使用して、Base64 エンコードされた画像データを
-            // 文字列として組み立てています。この文字列は、HTML イメージ要素の
-            //  src 属性に直接埋め込むことができる形式です。$imageFile->getClientMimeType()
-            //   を使用して、画像の MIME タイプを取得し、Data URI の先頭に付加しています。
-            $image = 'data:' . $imageFile->getClientMimeType() . ';base64,' . $imageBase64;
-            // session() ヘルパーを使用して、セッションに画像データを保存しています。
-            // これにより、後続のリクエストでも画像データにアクセスできるようになります。
+            // $image は挿入されたimage(file nameの)をpublicディレクトリのimagesに保存する。
+            $image = $request->file("image")->store("images", "public");
+            //一時的に＄image（値）のimage(キー)を保存する
             $request->session()->put("image", $image);
-        }else{
+        } else {
+            //あるいは、＄imageはnull
             $image = null;
         }
+        // if ($request->hasFile("image")) {
+        //     // リクエストから "image" ファイルを取得し、変数 $imageFile に代入しています。
+        //     $imageFile = $request->file("image");
+        //     // File::get($imageFile);: Laravel の File クラスを使用して、
+        //     // $imageFile から画像ファイルの内容を取得しています。これにより、
+        //     // 画像ファイルのバイナリデータが変数 $imageContents に保存されます。
+        //     $imageContents = File::get($imageFile);
+        //     // base64_encode 関数を使用して、画像ファイルのバイナリデータを
+        //     //  Base64 エンコードしています。これにより、画像データがテキスト形式に
+        //     //  変換され、変数 $imageBase64 に保存されます。
+        //     $imageBase64 = base64_encode($imageContents);
+        //     // Data URI スキームを使用して、Base64 エンコードされた画像データを
+        //     // 文字列として組み立てています。この文字列は、HTML イメージ要素の
+        //     //  src 属性に直接埋め込むことができる形式です。$imageFile->getClientMimeType()
+        //     //   を使用して、画像の MIME タイプを取得し、Data URI の先頭に付加しています。
+        //     $image = 'data:' . $imageFile->getClientMimeType() . ';base64,' . $imageBase64;
+        //     // session() ヘルパーを使用して、セッションに画像データを保存しています。
+        //     // これにより、後続のリクエストでも画像データにアクセスできるようになります。
+        //     $request->session()->put("image", $image);
+        // }else{
+        //     $image = null;
+        // }
         return view('item.confirm', [
             'inputs' => $inputs, "image" => $image, 'types' => $types
         ]);
