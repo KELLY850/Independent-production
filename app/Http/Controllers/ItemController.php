@@ -112,10 +112,23 @@ class ItemController extends Controller
         //     $image = null;
         // }
         if ($request->hasFile("image")) {
+            // リクエストから "image" ファイルを取得し、変数 $imageFile に代入しています。
             $imageFile = $request->file("image");
+            // File::get($imageFile);: Laravel の File クラスを使用して、
+            // $imageFile から画像ファイルの内容を取得しています。これにより、
+            // 画像ファイルのバイナリデータが変数 $imageContents に保存されます。
             $imageContents = File::get($imageFile);
+            // base64_encode 関数を使用して、画像ファイルのバイナリデータを
+            //  Base64 エンコードしています。これにより、画像データがテキスト形式に
+            //  変換され、変数 $imageBase64 に保存されます。
             $imageBase64 = base64_encode($imageContents);
+            // Data URI スキームを使用して、Base64 エンコードされた画像データを
+            // 文字列として組み立てています。この文字列は、HTML イメージ要素の
+            //  src 属性に直接埋め込むことができる形式です。$imageFile->getClientMimeType()
+            //   を使用して、画像の MIME タイプを取得し、Data URI の先頭に付加しています。
             $image = 'data:' . $imageFile->getClientMimeType() . ';base64,' . $imageBase64;
+            // session() ヘルパーを使用して、セッションに画像データを保存しています。
+            // これにより、後続のリクエストでも画像データにアクセスできるようになります。
             $request->session()->put("image", $image);
         }else{
             $image = null;

@@ -18,7 +18,7 @@
             </a>
             @else
             <a href="{{ route('types.detail', ['id' => $item->id]) }}">
-                <img src="{{ asset('img/写真がない時.png')}}" width="100%" alt="" class="img-thumbnail">
+                <img src="{{ asset('img/ロフト.jpeg')}}" width="100%" alt="" class="img-thumbnail">
             </a> 
             @endif
             <div class="text">
