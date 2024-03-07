@@ -1,43 +1,45 @@
-## 商品管理システム
 
-### 環境構築手順
+# 介護用品管理
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+## 概要
+　このシステムでは、管理者権限を持つアカウントのみ福祉用具の登録及び編集、削除が可能です。
+　加えて、アカウント管理もでき、権限の付与・メールアドレス・名前の修正或いは削除ができます。
+　また、商品検索機能もあり、管理者権限及び社員権限を持つアカウントのみ福祉用具の検索・詳細画面を
+　確認することができます。
+　上記は、権限を持つユーザーでのログインが必要になりますが、ログイン不要で公開設定されている
+　福祉用具の商品の一覧及び詳細画面を確認することができます。
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 主な機能・画面
 
-* APP_KEY生成
+* ホーム画面（ログイン不要）
+    * 画像カテゴリーからの商品一覧画面
+    * 商品詳細画面
+* 商品管理画面(管理者権限ログイン要・商品検索機能あり)
+    * 商品登録画面
+    * 商品登録確認画面
+    * 商品編集画面
+    * 商品編集確認画面
+* 商品検索画面(社員・管理者権限ログイン要)
+    * 商品詳細画面（編集機能は無し）
+* アカウント管理画面(管理者権限ログイン要・アカウント検索機能あり)
+    * アカウント編集画面
+* ログイン画面
+* 新規登録画面
 
-    ```console
-    php artisan key:generate
-    ```
+## 開発環境
+    Laravel 10
+    PHP 8.2
+    MySQL 
+    MAMP
+    Git Hub
+    VsCode
 
-* Composerインストール
+### 設計書
+<https://drive.google.com/drive/folders/1SU65J3CvPdlXdM_tfhoKJbemhpHlC1sX?usp=drive_link>
 
-    ```console
-    composer install
-    ```
+### HerokuURL
+<https://welfareequipment-16d0dd36007e.herokuapp.com>
+* テストアカウント（社員権限）
+    * メールアドレス：syain@email.com
+    * パスワード：1A2s1a2S
 
-* フロント環境構築
-
-    ```console
-    npm ci
-    npm run build
-    ```
-
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
