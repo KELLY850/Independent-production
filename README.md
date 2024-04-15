@@ -35,7 +35,7 @@
     VsCode
 
 ### 設計書
-編集中
+https://drive.google.com/drive/folders/1aCZk72iEbDCth1xvMh8_RXN2cNss7knK?usp=drive_link
 
 ### HerokuURL
 <https://welfareequipment-16d0dd36007e.herokuapp.com>
