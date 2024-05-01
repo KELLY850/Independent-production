@@ -42,4 +42,7 @@ https://drive.google.com/drive/folders/1aCZk72iEbDCth1xvMh8_RXN2cNss7knK?usp=dri
 * テストアカウント（社員権限）
     * メールアドレス：syain@email.com
     * パスワード：1A2s1a2S
+＊　テストアカウント（管理者権限）
+    * メールアドレス：test@test.co.jp
+    *パスワード：1A2s1a2S
 
