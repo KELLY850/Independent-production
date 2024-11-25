@@ -37,7 +37,7 @@
 ### 設計書
 https://drive.google.com/drive/folders/1aCZk72iEbDCth1xvMh8_RXN2cNss7knK?usp=drive_link
 
-### HerokuURL
+### HerokuURL ※Heroku登録削除
 <https://welfareequipment-16d0dd36007e.herokuapp.com>
 * テストアカウント（社員権限）
     * メールアドレス：syain@email.com
