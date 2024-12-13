@@ -38,11 +38,11 @@
 https://drive.google.com/drive/folders/1aCZk72iEbDCth1xvMh8_RXN2cNss7knK?usp=drive_link
 
 ### HerokuURL ※Heroku登録削除
-<https://welfareequipment-16d0dd36007e.herokuapp.com>
+[https://welfareequipment-16d0dd36007e.herokuapp.com>](https://welfareequipment-app-348b36d358ae.herokuapp.com/)
 * テストアカウント（社員権限）
-    * メールアドレス：syain@email.com
-    * パスワード：1A2s1a2S
+    * メールアドレス：syain@co.jp
+    * パスワード：aaaaaaaa
 * テストアカウント（管理者権限）
-    * メールアドレス：test@test.co.jp
-    *パスワード：1A2s1a2S
+    * メールアドレス：test@co.jp
+    *パスワード：aaaaaaaa
 
